@@ -8,7 +8,7 @@ Imports System.Runtime.InteropServices
 
 ' アセンブリ属性の値を確認します。
 
-<Assembly: AssemblyTitle("RPN Complex Calculator")> 
+<Assembly: AssemblyTitle("RPN Complex Software Calculator")> 
 <Assembly: AssemblyDescription("RPN電卓")> 
 <Assembly: AssemblyCompany("MihailJP")> 
 <Assembly: AssemblyProduct("rpncalc")> 

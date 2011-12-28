@@ -1134,7 +1134,7 @@ Partial Class CalcPad
         Me.Name = "CalcPad"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
         Me.Tag = ""
-        Me.Text = "RPN Complex Calculator"
+        Me.Text = "RPN Complex Software Calculator"
         Me.ResumeLayout(False)
 
     End Sub
