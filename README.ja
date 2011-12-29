@@ -33,6 +33,15 @@ RPN Complex Software Calculator
 	Enter (Enterキー)：
 		　入力されている値をスタックに積みます。
 
+	C (Escキー)：
+		　スタックをリセットします。
+
+	CE (Deleteキー)：
+		　スタックのXの値をリセットします。
+
+	Del (Backspaceキー)：
+		　入力中の値を一文字削除します。
+
 	+ (テンキーの + キー)：
 		　スタックから数値を2つ取り出し、 Y + X の値をスタックに積みます。
 
@@ -164,6 +173,18 @@ RPN Complex Software Calculator
 		　このソフトウェアを終了します。
 
 
+■設定
+	　一度このソフトウェアを起動すると、ウィンドウの位置、DegとFloatスイッチの
+	状態が自動的にConfig.xmlに保存されます。
+	　ButtonFont、ButtonFontAdjust、DisplayFont、DisplayFontAdjustはアプリケー
+	ションで使用されるフォントを指定します。これらのプロパティは起動中に変更す
+	ることができませんが、もしかすると変更する必要があるかもしれません。特に
+	(CalibriやConsolasフォントが入っているVistaや7ではなく)Windows XPで起動し
+	ている場合には。ButtonFontとDisplayFontにはフォント名を指定します。
+	ButtonFontAdjustとDisplayFontAdjustにはフォントサイズの倍率を指定します。
+	DejaVu SansとSans Monoを使う場合、倍率は0.8を推奨します。
+
+
 ■連絡先など
 	メール：
 		mihailjp@gmail.com
@@ -176,5 +197,9 @@ RPN Complex Software Calculator
 
 
 ■更新履歴
+	0.1.1：
+		マニュアルの訂正。
+		Config.xmlからフォントを指定できるようにする。
+
 	0.1.0：
 		最初のリリース

@@ -34,6 +34,15 @@ RPN Complex Software Calculator
 	Enter (Enter key):
 		  Pushes the value you were being inputting onto the stack.
 
+	C (Esc key):
+		  Resets the stack.
+
+	CE (Delete key):
+		  Resets the value of X on the stack.
+
+	Del (Backspace key):
+		  Deletes the last digit of the value you are inputting.
+
 	+ (+ key on keypad):
 		  Pops two values from the stack, then pushes the value of Y + X.
 
@@ -171,6 +180,19 @@ RPN Complex Software Calculator
 		  Exits from this software.
 
 
+* Configuration
+	  Once you have run this software, the window position, Deg and Float
+	switch status are automatically saved to Config.xml.
+	  ButtonFont, ButtonFontAdjust, DisplayFont and DisplayFontAdjust speci-
+	fies the fonts to be used on the application.  These properties cannot be
+	changed on the running software, but you may need to change these values
+	especially when you are running on Windows XP (not Vista or 7 which in-
+	cludes Calibri and Consolas fonts).  ButtonFont and DisplayFont specify
+	the font names.  ButtonFontAdjust and DisplayFontAdjust specifies the
+	scale factor of the font size.  If you use DejaVu Sans and Sans Mono, we
+	recommend 0.8x as font size scale.
+
+
 * Contacts
 	Mail:
 		mihailjp@gmail.com
@@ -183,5 +205,9 @@ RPN Complex Software Calculator
 
 
 * Version History
+	0.1.1：
+		Manual correction.
+		Now fonts can be specified by Config.xml.
+
 	0.1.0:
 		First release.
