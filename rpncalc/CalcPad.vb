@@ -76,6 +76,8 @@
     End Structure
 
     Private SineButtonBaseFontSize As Single
+    Private ButtonBaseSize As Single
+    Private DispBaseSize As Single
 
     ' 文字列定数
     Protected Structure TextLabel
@@ -166,6 +168,10 @@
 
     ' 起動時に呼び出されるイベント
     Private Sub CalcPad_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        ' フォントサイズを退避
+        ButtonBaseSize = EnterButton.Font.SizeInPoints
+        DispBaseSize = Value1Mantissa.Font.SizeInPoints
+
         ' 全ボタンにハンドラを割り当て
         For Each CurrentObj In Me.Controls
             If CurrentObj.GetType Is GetType(Button) Then
@@ -933,6 +939,10 @@
         Configuration.PosY = DesktopLocation.Y
         Configuration.DegreeFlag = DegreeSwitch.Checked
         Configuration.FloatFlag = FloatSwitch.Checked
+        Configuration.ButtonFont = EnterButton.Font.Name
+        Configuration.ButtonFontAdjust = EnterButton.Font.SizeInPoints / ButtonBaseSize
+        Configuration.DisplayFont = Value1Mantissa.Font.Name
+        Configuration.DisplayFontAdjust = Value1Mantissa.Font.SizeInPoints / DispBaseSize
         Dim Serializer As New System.Xml.Serialization.XmlSerializer(GetType(ConfigClass))
         Dim FileStream As New System.IO.FileStream("Config.xml", System.IO.FileMode.Create)
         Serializer.Serialize(FileStream, Configuration)
