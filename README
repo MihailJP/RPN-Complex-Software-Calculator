@@ -1,0 +1,187 @@
+﻿==============================================================================
+RPN Complex Software Calculator
+==============================================================================
+
+* Synopsis
+	  This is a software calculator created for practice of VB.NET and object-
+	oriented programming.  You need the .NET Framework 2.0 runtime in order to
+	run this software.
+	  This software, unlike ordinary calculators, implements the reverse
+	Polish notation for input.  For example, you must input "1 Enter 2 +"
+	instead of "1 + 2 =" for the sum of one and two (just like the word order
+	of Japanese language, namely "1 ni 2 o tasu").  Up to four values, namely
+	X, Y, Z and T, can be stacked.
+	  This software is capable of calculations of complex number.
+
+
+* Installation
+	  Extract the archive into a folder you would like.
+
+
+* Uninstallation
+	  Delete the folder you have installed this software.
+
+
+* How to use
+	  You may use your keyboard instead of the on-screen buttons.
+	
+	0-9 (0-9 on keypad):
+		  Inputs the corresponding number.
+
+	. (Decimal key on keypad):
+		  Inputs decimal point.
+
+	Enter (Enter key):
+		  Pushes the value you were being inputting onto the stack.
+
+	+ (+ key on keypad):
+		  Pops two values from the stack, then pushes the value of Y + X.
+
+	- (- key on keypad):
+		  Pops two values from the stack, then pushes the value of Y - X.
+
+	× (* key on keypad):
+		  Pops two values from the stack, then pushes the value of Y × X.
+
+	÷ (/ key on keypad):
+		  Pops two values from the stack, then pushes the value of Y / X.
+
+	+/- (F9 key):
+		  Inverts the sign of the value you are inputting (i.e. where the
+		value blinks).
+
+	X↔Y (Insert key):
+		  Swaps X and Y of the stack.
+
+	R↓ (PageDown key):
+		  Rotates the stack.  Value of Y moves into X, and Z into new Y, and
+		so on.
+
+	(Tab key):
+		  There are no buttons corresponding this key on the window.  This
+		moves the cursor (i.e. where the value blinks) right by 1 area.
+
+	Re/Im (I key):
+		  Moves the cursor between the real and the imaginary parts (modulus
+		and argument when the Polar switch (described below) is on).
+
+	Ma/Ex (E key):
+		  Moves the cursor between mantissa and exponent.
+
+	π (P key):
+		  Pushes the value of pi onto the stack.
+
+	LastX (X key):
+		  Pushes the value you have input the last time onto the stack.
+
+	ln or eˣ (N key):
+		  When Inv switch (described below) is turned off, pops X, then pushes
+		the natural logarithm of X onto the stack.
+		  Otherwise, pops X, then pushes the Xth power of e onto the stack.
+
+	log₁₀ or 10ˣ (L key):
+		  When Inv switch is turned off, pops X, then pushes the common
+		logarithm of X onto the stack.
+		  Otherwise, pops X, then pushes the Xth power of ten onto the stack.
+
+	x² (Q key):
+		  Pops X, then pushes X squared onto the stack.
+
+	√x (R key):
+		  Pops X, then pushes the square root of X onto the stack.
+
+	yˣ (W key):
+		  Pops two values from the stack, then pushes the Xth power of Y onto
+		the stack.
+
+	1/x (K key):
+		  Pops X, then pushes the reciprocal of X onto the stack.
+
+	sin, Arcsin, sinh, Arsinh (S key):
+		  When Inv switch is turned off, pops X, then pushes the sine of X
+		onto the stack.
+		  When Inv switch is turned on, pops X, then pushes the principal
+		value of the arcsine of X onto the stack.
+		  Angles are input or output by radians normally, but by degrees when
+		Deg switch (described below) is turned on.
+		  When Hyp switch (described below) is turned on, hyperbolic sine and
+		area hyperbolic sine are used instead of (trigonometric) sine and
+		arcsine respectively.
+
+	cos, Arccos, cosh, Arcosh (C key):
+		  When Inv switch is turned off, pops X, then pushes the cosine of X
+		onto the stack.
+		  When Inv switch is turned on, pops X, then pushes the principal
+		value of the arccosine of X onto the stack.
+		  Angles are input or output by radians normally, but by degrees when
+		Deg switch is turned on.
+		  When Hyp switch is turned on, hyperbolic cosine and area hyperbolic
+		cosine are used instead of (trigonometric) cosine and arccosine
+		respectively.
+
+	tan, Arctan, tanh, Artanh (T key):
+		  When Inv switch is turned off, pops X, then pushes the tangent of X
+		onto the stack.
+		  When Inv switch is turned on, pops X, then pushes the principal
+		value of the arctangent of X onto the stack.
+		  Angles are input or output by radians normally, but by degrees when
+		Deg switch is turned on.
+		  When Hyp switch is turned on, hyperbolic tangent and area hyperbolic
+		tangent are used instead of (trigonometric) tangent and arctangent
+		respectively.
+
+	x! (G key):
+		  Pops X from the stack, then pushes the factorial of X onto the
+		stack.  Strictly speaking, this calculates Γ(X+1).
+
+	|x| (M key):
+		  Pops X from the stack, then pushes the modulus of X onto the stack.
+
+	Arg (A key):
+		  Pops X from the stack, then pushes the argument of X onto the stack.
+		This will return by radians, regardless of the Deg switch.
+
+	x̅ (J key; you will see an x with a bar above when correctly rendered):
+		  Pops X from the stack, then pushes the argument of X onto the stack.
+		This will return by radians, regardless of the Deg switch.
+
+	Deg (D key):
+		  Switches the unit for angles.  When turned on, uses degrees; other-
+		wise, uses radians.
+
+	Polar (O key):
+		  Switches the expression for complex numbers.  When turned on, uses
+		the polar form (r∠θ); otherwise, uses the algebraic form (a+bi).
+
+	Inv (V key):
+		  When turned on, uses the inverse functions.  This affects ln, log₁₀,
+		sin, cos and tan.
+
+	Hyp (H key):
+		  When turned on, uses the hyperbolic functions instead of trigono-
+		metric ones.  This affects sin, cos and tan.
+
+	Float (F key):
+		  When turned on, avoids the scientific notation when possible (as in
+		100.25 or 1234).
+		  When turned off, always uses the scientific notation (as in 1.0025
+		×10² or 1.234×10³).
+
+	Power (Alt+F4):
+		  Exits from this software.
+
+
+* Contacts
+	Mail:
+		mihailjp@gmail.com
+
+	Twitter ID:
+		MihailJP
+
+	GitHub project page:
+		https://github.com/MihailJP/RPN-Complex-Software-Calculator
+
+
+* Version History
+	0.1.0:
+		First release.
