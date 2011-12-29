@@ -106,6 +106,10 @@
         Public DegreeFlag As Boolean = False
         Public PosX As Integer = 0
         Public PosY As Integer = 0
+        Public ButtonFont As String = "Calibri"
+        Public ButtonFontAdjust As Single = 1.0
+        Public DisplayFont As String = "Consolas"
+        Public DisplayFontAdjust As Single = 1.0
     End Class
 
 #End Region
@@ -148,6 +152,16 @@
         SetDesktopLocation(Configuration.PosX, Configuration.PosY)
         FloatSwitch.Checked = Configuration.FloatFlag
         DegreeSwitch.Checked = Configuration.DegreeFlag
+        For Each CurrentObj In Me.Controls
+            If CurrentObj.GetType Is GetType(Button) Then
+                CType(CurrentObj, Button).Font = New Font(Configuration.ButtonFont, CType(CurrentObj, Button).Font.SizeInPoints * Configuration.ButtonFontAdjust, CType(CurrentObj, Button).Font.Style)
+            ElseIf CurrentObj.GetType Is GetType(CheckBox) Then
+                CType(CurrentObj, CheckBox).Font = New Font(Configuration.ButtonFont, CType(CurrentObj, CheckBox).Font.SizeInPoints * Configuration.ButtonFontAdjust, CType(CurrentObj, CheckBox).Font.Style)
+            ElseIf CurrentObj.GetType Is GetType(Label) Then
+                CType(CurrentObj, Label).Font = New Font(Configuration.DisplayFont, CType(CurrentObj, Label).Font.SizeInPoints * Configuration.DisplayFontAdjust, CType(CurrentObj, Label).Font.Style)
+            End If
+        Next
+        SineButtonBaseFontSize *= Configuration.ButtonFontAdjust
     End Sub
 
     ' 起動時に呼び出されるイベント
@@ -536,6 +550,7 @@
             Case ArgumentButton.Text : CalcFunc(Oper.Argument)
             Case ConjugateButton.Text : CalcFunc(Oper.Conjugate)
         End Select
+        Me.Focus()
     End Sub
 #End Region
 
