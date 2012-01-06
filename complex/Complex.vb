@@ -356,9 +356,9 @@ Public Structure Complex : Implements IFormattable
         Dim Answer As Complex = 0
         If Angle.Imaginary Then
             ' 実数でない場合は公式を使う
-            ' cos (x + iy) = cos x cosh y + i sin x sinh y
+            ' cos (x + iy) = cos x cosh y - i sin x sinh y
             Answer.Real = Math.Cos(Angle.Real) * Math.Cosh(Angle.Imaginary)
-            Answer.Imaginary = Math.Sin(Angle.Real) * Math.Sinh(Angle.Imaginary)
+            Answer.Imaginary = -Math.Sin(Angle.Real) * Math.Sinh(Angle.Imaginary)
             Return Answer
         Else
             ' 実数だったら普通のライブラリ関数を使う

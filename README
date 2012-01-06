@@ -205,6 +205,9 @@ RPN Complex Software Calculator
 
 
 * Version History
+	0.2.0:
+		[Fixed] Incorrect return value of cosine.
+
 	0.1.1：
 		Manual correction.
 		Now fonts can be specified by Config.xml.
