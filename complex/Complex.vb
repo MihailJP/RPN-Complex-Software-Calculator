@@ -154,6 +154,7 @@ Public Structure Complex : Implements IFormattable
 
     ' 定数を定義
     Public Shared ReadOnly I As New Complex With {.Real = 0, .Imaginary = 1} ' 虚数単位
+    Public Shared ReadOnly PI As New Complex With {.Real = Math.PI, .Imaginary = 0} ' π
 
     ' 型の変換を定義
 #Region "Cast"
@@ -405,8 +406,8 @@ Public Structure Complex : Implements IFormattable
         Dim Answer As Complex = 0
         If value.Imaginary Or (value.Real > 1) Or (value.Real < -1) Then
             ' 実数でない場合か [-1,1] の範囲外だったら公式を使う
-            ' arccos z = -i log (z + sqrt(z ^ 2 - 1))
-            Answer = -I * Log(value + Sqrt(Pow(value, 2) - 1))
+            ' arccos z = pi/2 - arcsin z
+            Answer = PI / 2 - Asin(value)
             Return Answer
         Else
             ' 実数だったら普通のライブラリ関数を使う

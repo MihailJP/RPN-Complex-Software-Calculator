@@ -206,7 +206,7 @@ RPN Complex Software Calculator
 
 * Version History
 	0.2.0:
-		[Fixed] Incorrect return value of cosine.
+		[Fixed] Incorrect return value of cosine and arccosine.
 
 	0.1.1：
 		Manual correction.
