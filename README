@@ -205,6 +205,9 @@ RPN Complex Software Calculator
 
 
 * Version History
+	0.3.0:
+		[Fixed] Incorrect return value of area hyperbolic cosine.
+
 	0.2.0:
 		[Fixed] Incorrect return value of cosine and arccosine.
 

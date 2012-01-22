@@ -492,8 +492,8 @@ Public Structure Complex : Implements IFormattable
 
     ' 双曲逆余弦
     Public Shared Function Acosh(ByVal value As Complex) As Complex
-        ' arsinh x = ln (x + sqrt(x ^ 2 - 1)); x>= 1
-        Return Log(value + Sqrt(Pow(value, 2) - 1))
+        ' arcosh x = ln (x + sqrt(x + 1) * sqrt(x - 1))
+        Return Log(value + Sqrt(value + 1) * Sqrt(value - 1))
     End Function
 
     ' 双曲逆正接
