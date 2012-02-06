@@ -560,23 +560,11 @@ Public Structure Complex : Implements IFormattable
             End If
         Else
             ' それ以外の実数の場合
-            Dim AnsRaw As Complex = 1
-            Dim Previous As Complex = 1
-            Dim EndFlag As Boolean = False
-            Dim LoopCount As UInt32 = 1
-            Do Until EndFlag
-                Previous = AnsRaw
-                AnsRaw *= (Pow(1 + 1 / LoopCount, value) / (1 + value / LoopCount))
-                If Double.IsInfinity(AnsRaw.Real) Or Double.IsNaN(AnsRaw.Real) Or
-                    Double.IsInfinity(AnsRaw.Imaginary) Or Double.IsNaN(AnsRaw.Imaginary) Or
-                    ((AnsRaw - Previous).Absolute < 0.0000000000000002) Or
-                    LoopCount > 200000 Then
-                    AnsRaw = Previous
-                    EndFlag = True
-                End If
-                LoopCount += 1
-            Loop
-            Return AnsRaw / value
+            ' スターリングの公式の応用を使う
+            ' Γ(z) ≒ sqrt(2 * pi / z) * (z / e * sqrt(z * sinh(1 / z) + 1 / (810 * z^6)))
+            Dim Answer As Complex =
+                Sqrt(2 * PI / value) * (value / Math.E * Sqrt(value * Sinh(1 / value) + 1 / (810 * Pow(value, 6))))
+            Return Answer
         End If
     End Function
 #End Region
