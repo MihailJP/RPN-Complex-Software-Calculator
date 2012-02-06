@@ -561,9 +561,9 @@ Public Structure Complex : Implements IFormattable
         Else
             ' それ以外の実数の場合
             ' スターリングの公式の応用を使う
-            ' Γ(z) ≒ sqrt(2 * pi / z) * (z / e * sqrt(z * sinh(1 / z) + 1 / (810 * z^6)))
+            ' Γ(z) ≒ sqrt(2 * pi / z) * (z / e * sqrt(z * sinh(1 / z) + 1 / (810 * z^6)))^z
             Dim Answer As Complex =
-                Sqrt(2 * PI / value) * (value / Math.E * Sqrt(value * Sinh(1 / value) + 1 / (810 * Pow(value, 6))))
+                Sqrt(2 * PI / value) * Pow(value / Math.E * Sqrt(value * Sinh(1 / value) + 1 / (810 * Pow(value, 6))), value)
             Return Answer
         End If
     End Function
