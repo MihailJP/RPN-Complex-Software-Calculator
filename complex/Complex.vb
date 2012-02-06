@@ -529,35 +529,12 @@ Public Structure Complex : Implements IFormattable
                     Return Double.PositiveInfinity
                 End If
             End If
-        ElseIf (value.Imaginary = 0) And ((value.Real + 0.5) = Math.Floor(value.Real + 0.5)) Then
-            ' 半整数の場合
-            If (value.Real > 0) And (value.Real < 1) Then
-                ' Γ(0.5) = √π
-                Return Math.Sqrt(Math.PI)
-            ElseIf value.Real >= 170 Then
-                ' オーバーフローした場合
-                ' 倍精度型では Γ(169.5) が限界
-                Throw New OverflowException("Factorial")
-                Return New Complex
-            ElseIf value.Real > 1 Then
-                ' 引数が正
-                Dim Answer As Double = Math.Sqrt(Math.PI)
-                For k As Byte = 1 To CType(Math.Floor(value.Real), Byte) Step 1
-                    Answer *= (CType(k, Double) * 2 - 1) / 2
-                Next
-                Return Answer
-            ElseIf value.Real <= -179 Then
-                ' アンダーフローした場合
-                ' 倍精度型では Γ(-178.5) が限界
-                Return 0
-            Else
-                ' 引数が負
-                Dim Answer As Double = Math.Sqrt(Math.PI)
-                For k As Byte = 1 To CType(Math.Floor(-value.Real) + 1, Byte) Step 1
-                    Answer *= -2 / (CType(k, Double) * 2 - 1)
-                Next
-                Return Answer
-            End If
+        ElseIf value.Real < 0.5 Then
+            ' 偏角が大きい場合
+            ' オイラーの反射公式により誤差を修正する
+            ' Γ(z)Γ(1-z) = pi / sin(pi * z)
+            ' Γ(z) = (pi / sin(pi * z)) / Γ(1-z)
+            Return (PI / Sin(value * PI)) / Gamma(CType(1, Complex) - value)
         Else
             ' それ以外の実数の場合
             ' スターリングの公式の応用を使う
