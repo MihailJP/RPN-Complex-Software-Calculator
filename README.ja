@@ -197,6 +197,9 @@ RPN Complex Software Calculator
 
 
 ■更新履歴
+	0.4.1:
+		ガンマ関数の計算方法を変更。
+
 	0.4.0:
 		ガンマ関数の計算方法を変更。
 

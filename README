@@ -205,6 +205,9 @@ RPN Complex Software Calculator
 
 
 * Version History
+	0.4.1:
+		Algorithm for Gamma function has been changed.
+
 	0.4.0:
 		Algorithm for Gamma function has been changed.
 
