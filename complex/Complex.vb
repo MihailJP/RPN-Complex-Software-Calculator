@@ -487,7 +487,7 @@ Public Structure Complex : Implements IFormattable
     ' 双曲逆正弦
     Public Shared Function Asinh(ByVal value As Complex) As Complex
         ' arsinh x = ln (x + sqrt(x ^ 2 + 1))
-        Return Log(value + Sqrt(Pow(value, 1) + 1))
+        Return Log(value + Sqrt(Pow(value, 2) + 1))
     End Function
 
     ' 双曲逆余弦
