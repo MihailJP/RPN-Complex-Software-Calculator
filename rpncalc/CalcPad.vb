@@ -431,7 +431,7 @@
 
 #Region "Input"
     ' キーボード入力
-    Private Sub CalcPad_KeyEvent(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
+    Private Sub CalcPad_KeyEvent(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown, TangentButton.KeyDown, SwitchExponentCursor.KeyDown, SwitchComplexCursor.KeyDown, SwapButton.KeyDown, SubtractionButton.KeyDown, SquareRoot.KeyDown, SquareButton.KeyDown, SineButton.KeyDown, RotateButton.KeyDown, PowerSwitch.KeyDown, PolarSwitch.KeyDown, PiButton.KeyDown, NumPadDecimal.KeyDown, NumPad9.KeyDown, NumPad8.KeyDown, NumPad7.KeyDown, NumPad6.KeyDown, NumPad5.KeyDown, NumPad4.KeyDown, NumPad3.KeyDown, NumPad2.KeyDown, NumPad1.KeyDown, NumPad0.KeyDown, NegateSignButton.KeyDown, NaturalLogarithm.KeyDown, MultiplicationButton.KeyDown, LastXButton.KeyDown, InvertSwitch.KeyDown, InverseNumber.KeyDown, HyperbolicSwitch.KeyDown, FloatSwitch.KeyDown, FactorialButton.KeyDown, ExponentButton.KeyDown, EnterButton.KeyDown, DivisionButton.KeyDown, DeleteButton.KeyDown, DegreeSwitch.KeyDown, CosineButton.KeyDown, ConjugateButton.KeyDown, CommonLogarithm.KeyDown, ClearEntryButton.KeyDown, ClearButton.KeyDown, ArgumentButton.KeyDown, AdditionButton.KeyDown, AbsoluteButton.KeyDown
         Select Case e.KeyCode
             Case Keys.Delete : ValueClear()
             Case Keys.Escape : AllClear()
@@ -556,7 +556,7 @@
             Case ArgumentButton.Text : CalcFunc(Oper.Argument)
             Case ConjugateButton.Text : CalcFunc(Oper.Conjugate)
         End Select
-        Me.Focus()
+        sender.Focus()
     End Sub
 #End Region
 
