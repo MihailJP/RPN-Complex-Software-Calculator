@@ -205,6 +205,10 @@ RPN Complex Software Calculator
 
 
 * Version History
+	0.5.0:
+		[Fixed] Incorrect formula of area hyperbolic sine.
+		Now maybe works under Mono.
+
 	0.4.1:
 		Algorithm for Gamma function has been changed.
 
